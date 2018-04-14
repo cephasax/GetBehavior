@@ -78,21 +78,21 @@ public class ReadingFromCarResource {
 	// CREATE
 	@POST
 	@Path("/rfc")
-	@Consumes("application/json")
 	@Produces("application/json; charset=UTF-8")
-	public Response newReadingFromCar(ReadingFromCar readingFromCar) {
-	
-		String classValue = new String(classifyReadingFromCar(readingFromCar));
+	@Consumes("application/json; charset=UTF-8")
+	public Response newReadingFromCar(String string) {
+		System.out.println(string);
+		/*String classValue = new String(classifyReadingFromCar(readingFromCar));
 		ReadingFromCar rfc = new ReadingFromCar();
 		rfc = readingFromCar;
 		rfc.getElement().setPredictedValue(classValue);
 		
-		service.save(rfc);
+		service.save(rfc);*/
 		
 		try {
-			return Response.status(200).entity(rfc).build();
+			return Response.status(200).entity(string).build();
 		}  catch (Exception e) {
-			return Response.status(204).entity(readingFromCar).build();
+			return Response.status(204).entity(string).build();
 		}
 	}
 
