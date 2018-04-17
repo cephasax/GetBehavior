@@ -24,7 +24,7 @@ public class Element implements Serializable{
 	
 	private String predictedValue;
 	
-	protected Element() {
+	public Element() {
 		this.date = new Date();
 		this.predictedValue = new String("cluster1");
 	}

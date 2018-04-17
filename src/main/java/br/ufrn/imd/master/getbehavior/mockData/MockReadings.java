@@ -1,13 +1,11 @@
 package br.ufrn.imd.master.getbehavior.mockData;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.ThreadLocalRandom;
 
 import br.ufrn.imd.master.getbehavior.domain.ReadingFromCar;
 import br.ufrn.imd.master.getbehavior.utils.DateParser;
+import br.ufrn.imd.master.getbehavior.utils.DoubleWorker;
 
 public class MockReadings {
 	
@@ -30,15 +28,15 @@ public class MockReadings {
 			Calendar c = Calendar.getInstance();
 			ReadingFromCar rfc = new ReadingFromCar(s, DateParser.formatDate(c.getTime()));
 			
-			rfc.setEngineCoolantTemp(randomDouble());
-			rfc.setEngineLoad(randomDouble());
-			rfc.setEngineRpm(randomDouble());
-			rfc.setIntakeManifoldPressure(randomDouble());
-			rfc.setMaf(randomDouble());
-			rfc.setSpeed(randomDouble());
-			rfc.setShortTermFuelTrimBank1(randomDouble());
-			rfc.setThrottlePos(randomDouble());
-			rfc.setTimingAdvance(randomDouble());
+			rfc.setEngineCoolantTemp(DoubleWorker.randomDouble());
+			rfc.setEngineLoad(DoubleWorker.randomDouble());
+			rfc.setEngineRpm(DoubleWorker.randomDouble());
+			rfc.setIntakeManifoldPressure(DoubleWorker.randomDouble());
+			rfc.setMaf(DoubleWorker.randomDouble());
+			rfc.setSpeed(DoubleWorker.randomDouble());
+			rfc.setShortTermFuelTrimBank1(DoubleWorker.randomDouble());
+			rfc.setThrottlePos(DoubleWorker.randomDouble());
+			rfc.setTimingAdvance(DoubleWorker.randomDouble());
 			
 			readings.add(rfc);
 		}
@@ -46,23 +44,6 @@ public class MockReadings {
 		return readings;
 	}
 	
-	private static double randomDouble() {
-		double min = 0;
-		double max = 1;
-		
-		double random = ThreadLocalRandom.current().nextDouble(min, max);
-
-		return round(random, 4);
-	}
 	
-	private static double round(double value, int places) {
-	    if (places < 0) {
-	    	throw new IllegalArgumentException();
-	    }
-	 
-	    BigDecimal bd = new BigDecimal(Double.toString(value));
-	    bd = bd.setScale(places, RoundingMode.HALF_UP);
-	    return bd.doubleValue();
-	}
 	
 }

@@ -1,5 +1,6 @@
 package br.ufrn.imd.master.getbehavior.resource;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -17,6 +18,8 @@ import br.ufrn.imd.master.getbehavior.business.ReadingFromCarService;
 import br.ufrn.imd.master.getbehavior.domain.MachineLearningModel;
 import br.ufrn.imd.master.getbehavior.domain.ReadingFromCar;
 import br.ufrn.imd.master.getbehavior.utils.ReadingFromCarUtils;
+import br.ufrn.imd.master.getbehavior.utils.ReadingFromCarWorker;
+import br.ufrn.imd.master.getbehavior.utils.StringWorker;
 import weka.core.Instance;
 
 @Stateless
@@ -28,8 +31,7 @@ public class ReadingFromCarResource {
 	
 	@EJB
 	private MachineLearningModel mlm;
-	
-	private String path;
+
 	
 	// LIST
 	@GET
@@ -81,17 +83,22 @@ public class ReadingFromCarResource {
 	@Produces("application/json; charset=UTF-8")
 	@Consumes("application/json; charset=UTF-8")
 	public Response newReadingFromCar(String string) {
-		System.out.println(string);
-		/*String classValue = new String(classifyReadingFromCar(readingFromCar));
-		ReadingFromCar rfc = new ReadingFromCar();
-		rfc = readingFromCar;
-		rfc.getElement().setPredictedValue(classValue);
-		
-		service.save(rfc);*/
 		
 		try {
+			
+			HashMap<String, String> hashMap = StringWorker.ReadingFromHashString(string);
+			
+			ReadingFromCar oldReading;
+			oldReading = ReadingFromCarWorker.makeReadingFromHashMap(hashMap);
+			String classValue = new String(classifyReadingFromCar(oldReading));
+			oldReading.getElement().setPredictedValue(classValue);
+		
+			service.save(oldReading);
+			System.out.println(oldReading.toString());
+			
 			return Response.status(200).entity(string).build();
-		}  catch (Exception e) {
+		}  
+		catch (Exception e) {
 			return Response.status(204).entity(string).build();
 		}
 	}
