@@ -86,7 +86,7 @@ public class ReadingFromCarResource {
 		
 		try {
 			
-			HashMap<String, String> hashMap = StringWorker.ReadingFromHashString(string);
+			HashMap<String, String> hashMap = StringWorker.hashMapFromString(string);
 			
 			ReadingFromCar oldReading;
 			oldReading = ReadingFromCarWorker.makeReadingFromHashMap(hashMap);

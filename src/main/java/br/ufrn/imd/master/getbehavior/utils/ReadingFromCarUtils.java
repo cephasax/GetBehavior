@@ -35,15 +35,9 @@ public class ReadingFromCarUtils {
 		createInstances();
 	}
 	
-	private List<String> createValuesForClass() {
-
-		List<String> classValues = new ArrayList<String>();
-
-		classValues.add(new String("cluster1"));
-		classValues.add(new String("cluster2"));
-		classValues.add(new String("cluster3"));
-
-		return classValues;
+	private void createInstances() {
+		this.dataset = new Instances("dataset", createAttributesToReadingFromCar(), 0);
+		this.dataset.setClassIndex(this.dataset.numAttributes() - 1);;
 	}
 	
 	private ArrayList<Attribute> createAttributesToReadingFromCar() {
@@ -66,11 +60,17 @@ public class ReadingFromCarUtils {
 		return attributes;
 	}
 	
-	private void createInstances() {
-		this.dataset = new Instances("dataset", createAttributesToReadingFromCar(), 0);
-		this.dataset.setClassIndex(this.dataset.numAttributes() - 1);;
+	private List<String> createValuesForClass() {
+
+		List<String> classValues = new ArrayList<String>();
+
+		classValues.add(new String("cluster1"));
+		classValues.add(new String("cluster2"));
+		classValues.add(new String("cluster3"));
+
+		return classValues;
 	}
-	
+		
 	public Instance readingFromCarToWekaInstance(ReadingFromCar readingFromCar) {
 		
 		double[] values = new double[dataset.numAttributes()];

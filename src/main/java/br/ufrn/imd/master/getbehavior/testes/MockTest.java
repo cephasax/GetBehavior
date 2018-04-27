@@ -1,8 +1,9 @@
-package br.ufrn.imd.master.getbehavior.mockData;
+package br.ufrn.imd.master.getbehavior.testes;
 
 import java.util.ArrayList;
 
 import br.ufrn.imd.master.getbehavior.domain.ReadingFromCar;
+import br.ufrn.imd.master.getbehavior.mockData.MockReadings;
 
 public class MockTest {
 

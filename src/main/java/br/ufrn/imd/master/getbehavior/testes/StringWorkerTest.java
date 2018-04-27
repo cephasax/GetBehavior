@@ -1,12 +1,14 @@
-package br.ufrn.imd.master.getbehavior.utils;
+ package br.ufrn.imd.master.getbehavior.testes;
 
 import java.util.HashMap;
 
-public class Teste {
+import br.ufrn.imd.master.getbehavior.utils.StringWorker;
+
+public class StringWorkerTest {
 
 	public static void main(String[] args) {
 		
-		HashMap<String, String> hash = StringWorker.ReadingFromHashString(
+		HashMap<String, String> hash = StringWorker.hashMapFromString(
 					"engineRpm:0.7538,"
 				+ 	" engineLoad:0.8195,"
 				+ 	" speed:0.2398,"

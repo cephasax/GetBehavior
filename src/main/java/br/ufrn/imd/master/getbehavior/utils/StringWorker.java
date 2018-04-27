@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class StringWorker {
 
-	public static HashMap<String,String> ReadingFromHashString(String hash) {
+	public static HashMap<String,String> hashMapFromString(String hash) {
 		
 		String hashNew = new String();
 		hashNew = hash.replace("\"", "");

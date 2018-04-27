@@ -1,11 +1,13 @@
-package br.ufrn.imd.master.getbehavior.domain;
+package br.ufrn.imd.master.getbehavior.testes;
 
 import java.io.IOException;
 
+import br.ufrn.imd.master.getbehavior.domain.MachineLearningModel;
+import br.ufrn.imd.master.getbehavior.domain.ReadingFromCar;
 import br.ufrn.imd.master.getbehavior.utils.ReadingFromCarUtils;
 import weka.core.Instance;
 
-public class Teste {
+public class ModelTest {
 
 	public static MachineLearningModel mlm;
 	public static ReadingFromCar rdf;
