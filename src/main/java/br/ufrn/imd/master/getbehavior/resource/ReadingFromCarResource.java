@@ -86,15 +86,7 @@ public class ReadingFromCarResource {
 		
 		try {
 			
-			HashMap<String, String> hashMap = StringWorker.hashMapFromString(string);
-			
-			ReadingFromCar oldReading;
-			oldReading = ReadingFromCarWorker.makeReadingFromHashMap(hashMap);
-			String classValue = new String(classifyReadingFromCar(oldReading));
-			oldReading.getElement().setPredictedValue(classValue);
-		
-			service.save(oldReading);
-			System.out.println(oldReading.toString());
+			System.out.println(StringWorker.getHashMapFromString(string));
 			
 			return Response.status(200).entity(string).build();
 		}  

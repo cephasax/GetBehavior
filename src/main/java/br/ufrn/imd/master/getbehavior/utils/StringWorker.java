@@ -3,6 +3,8 @@ package br.ufrn.imd.master.getbehavior.utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.gson.Gson;
+
 public class StringWorker {
 
 	public static HashMap<String,String> hashMapFromString(String hash) {
@@ -23,6 +25,13 @@ public class StringWorker {
 		}
 		
 		return (HashMap<String, String>) myMap;
+	}
+	
+	public static HashMap<String,String> getHashMapFromString(String hash) {
+		Gson gson = new Gson();
+		HashMap<String,String> h = new HashMap<>();
+		h = gson.fromJson(hash, HashMap.class);
+		return h;
 	}
 	
 }

@@ -2,14 +2,17 @@
 
 import java.util.HashMap;
 
+import com.google.gson.Gson;
+
 import br.ufrn.imd.master.getbehavior.utils.StringWorker;
 
 public class StringWorkerTest {
 
 	public static void main(String[] args) {
 		
-		HashMap<String, String> hash = StringWorker.hashMapFromString(
-					"engineRpm:0.7538,"
+		Gson gson = new Gson();
+		HashMap<String, String> hash2 = new HashMap<>();
+		String base = new String("{engineRpm:0.7538,"
 				+ 	" engineLoad:0.8195,"
 				+ 	" speed:0.2398,"
 				+ 	" idReadingFromCar:0,"
@@ -22,10 +25,21 @@ public class StringWorkerTest {
 				+ 	" timingAdvance:0.8278,"
 				+ 	" throttlePos:0.3833,"
 				+ 	" shortTermFuelTrimBank1:0.4165,"
-				+ 	" engineCoolantTemp:0.7737"
+				+ 	" engineCoolantTemp:0.7737}"
 				);
-		//System.out.println(hash.toString());
 		
+		HashMap<String, String> hash = StringWorker.hashMapFromString(base);
+					
+
+		
+	
+		
+		hash2 = gson.fromJson(base, HashMap.class);
+		
+		System.out.println(hash.toString());
+		
+		System.out.println();
+		System.out.println(hash2.toString());
 	}
 
 }
