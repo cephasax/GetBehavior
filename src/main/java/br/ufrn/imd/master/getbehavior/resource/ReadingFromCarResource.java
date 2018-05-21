@@ -84,9 +84,13 @@ public class ReadingFromCarResource {
 	@Consumes("application/json; charset=UTF-8")
 	public Response newReadingFromCar(String string) {
 		
+		System.out.println("recebido: " + string);
 		try {
+			ReadingFromCar r = ReadingFromCarUtils.makeReadingFromHashMap(StringWorker.getHashMapFromString(string));
+			r.getElement().setPredictedValue(classifyReadingFromCar(r));
 			
-			System.out.println(StringWorker.getHashMapFromString(string));
+			System.out.println("Classificada: " + r.toString());
+			service.save(r);
 			
 			return Response.status(200).entity(string).build();
 		}  
