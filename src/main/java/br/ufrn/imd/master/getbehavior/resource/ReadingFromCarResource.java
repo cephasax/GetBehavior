@@ -1,6 +1,6 @@
 package br.ufrn.imd.master.getbehavior.resource;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -18,7 +18,6 @@ import br.ufrn.imd.master.getbehavior.business.ReadingFromCarService;
 import br.ufrn.imd.master.getbehavior.domain.MachineLearningModel;
 import br.ufrn.imd.master.getbehavior.domain.ReadingFromCar;
 import br.ufrn.imd.master.getbehavior.utils.ReadingFromCarUtils;
-import br.ufrn.imd.master.getbehavior.utils.ReadingFromCarWorker;
 import br.ufrn.imd.master.getbehavior.utils.StringWorker;
 import weka.core.Instance;
 
@@ -66,11 +65,11 @@ public class ReadingFromCarResource {
 	@GET
 	@Path("/rfc/vehicle/{id}")
 	@Produces("application/json; charset=UTF-8")
-	public ReadingFromCar findByVehicleId(@PathParam("id") int id) {
-		ReadingFromCar rfc;
+	public ArrayList<ReadingFromCar> findByVehicleId(@PathParam("id") String id) {
+		ArrayList<ReadingFromCar> readingsFromCar = new ArrayList<ReadingFromCar>();
 		try {
-			rfc = service.findByVehicleId(id);
-			return rfc;
+			readingsFromCar = service.findByVehicleId(id);
+			return readingsFromCar;
 		}  catch (Exception e) {
 			e.printStackTrace();
 			return null;

@@ -36,10 +36,10 @@ public class ReadingFromCarService{
 		return readingFromCar;
 	}
 	
-	public ReadingFromCar findByVehicleId(int entityId){
-		ReadingFromCar readingFromCar = new ReadingFromCar();
-		readingFromCar = readingFromCarDao.findById(entityId);
-		return readingFromCar;
+	public ArrayList<ReadingFromCar> findByVehicleId(String entityId){
+		ArrayList<ReadingFromCar> readingsFromCar = new ArrayList<>();
+		readingsFromCar = readingFromCarDao.findByVehicleId(entityId);
+		return readingsFromCar;
 	}
 	
 	@SuppressWarnings("unchecked")

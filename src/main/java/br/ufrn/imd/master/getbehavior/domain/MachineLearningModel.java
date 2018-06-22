@@ -19,7 +19,7 @@ public class MachineLearningModel {
 	@PostConstruct
 	public void loadModel() {
 		//choose and load model
-		this.modelName = new String("C:\\Users\\cephas\\Documents\\Workspace\\iaWork\\GetBehavior\\src\\main\\resources\\model_perfil_rf.model");
+		this.modelName = new String("C:\\Users\\Administrator\\Documents\\workspace\\iaWork\\GetBehavior\\src\\main\\resources\\model_perfil_rf.model");
 		try {
 			this.cls = (Classifier) SerializationHelper.read(modelName);
 			

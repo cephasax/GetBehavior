@@ -40,7 +40,7 @@ public class ReadingFromCarDao extends GenericDao {
 		return (ReadingFromCar)query.getSingleResult();
 	}
 
-	public ArrayList<ReadingFromCar> findByVehicleId(int vehicleId) {
+	public ArrayList<ReadingFromCar> findByVehicleId(String vehicleId) {
 		//MAKING SQL QUERY
 		String sql = " Select r FROM ReadingFromCar r";
 		StringBuilder where = new StringBuilder();
