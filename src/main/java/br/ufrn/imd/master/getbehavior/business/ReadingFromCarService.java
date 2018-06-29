@@ -36,9 +36,16 @@ public class ReadingFromCarService{
 		return readingFromCar;
 	}
 	
-	public ArrayList<ReadingFromCar> findByVehicleId(String entityId){
+	public ReadingFromCar findLastReadingByVehicleId(String vehicleId){
+		ReadingFromCar readingFromCar = new ReadingFromCar();
+		System.out.println(vehicleId);
+		readingFromCar = readingFromCarDao.findLastReadingByVehicleId(vehicleId);
+		return readingFromCar;
+	}
+	
+	public ArrayList<ReadingFromCar> findByVehicleId(String vehicleId){
 		ArrayList<ReadingFromCar> readingsFromCar = new ArrayList<>();
-		readingsFromCar = readingFromCarDao.findByVehicleId(entityId);
+		readingsFromCar = readingFromCarDao.findByVehicleId(vehicleId);
 		return readingsFromCar;
 	}
 	

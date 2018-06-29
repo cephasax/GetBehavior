@@ -12,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import br.ufrn.imd.master.getbehavior.business.ReadingFromCarService;
@@ -30,7 +31,6 @@ public class ReadingFromCarResource {
 	
 	@EJB
 	private MachineLearningModel mlm;
-
 	
 	// LIST
 	@GET
@@ -45,37 +45,39 @@ public class ReadingFromCarResource {
 		}
 	}
 
-	// FIND BY ID
+	// FIND ALL BY VEHICLE ID
+	//returns all classified data from one car
 	@GET
-	@Path("/rfc/{id}")
+	@Path("/rfc/vehicle")
 	@Produces("application/json; charset=UTF-8")
-	public ReadingFromCar findById(@PathParam("id") int id) {
-		ReadingFromCar rfc;
-		try {
-			rfc = service.findById(id);
-			return rfc;
-		}  catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	// FIND BY VEHICLE ID
-	//returns the last classified data from this car
-	@GET
-	@Path("/rfc/vehicle/{id}")
-	@Produces("application/json; charset=UTF-8")
-	public ArrayList<ReadingFromCar> findByVehicleId(@PathParam("id") String id) {
+	public ArrayList<ReadingFromCar> findByVehicleId(@QueryParam("vehicleId") String vehicleId) {
 		ArrayList<ReadingFromCar> readingsFromCar = new ArrayList<ReadingFromCar>();
 		try {
-			readingsFromCar = service.findByVehicleId(id);
+			readingsFromCar = service.findByVehicleId(vehicleId);
 			return readingsFromCar;
 		}  catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-
+	
+	// FIND LAST BY VEHICLE ID
+	//returns last classified data from one car
+	@GET
+	@Path("/rfc/vehicle/last")
+	@Produces("application/json; charset=UTF-8")
+	public ReadingFromCar findLastReadingByVehicleId(@QueryParam("vehicleId") String vehicleId) {
+		System.out.println(vehicleId);
+		ReadingFromCar readingFromCar;
+		try {
+			readingFromCar = service.findLastReadingByVehicleId(vehicleId);
+			return readingFromCar;
+		}  catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	// CREATE
 	@POST
 	@Path("/rfc")
