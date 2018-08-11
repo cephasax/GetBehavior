@@ -3,7 +3,7 @@ package br.ufrn.imd.master.getbehavior.testes;
 import java.util.ArrayList;
 
 import br.ufrn.imd.master.getbehavior.domain.ReadingFromCar;
-import br.ufrn.imd.master.getbehavior.mockData.MockReadings;
+import br.ufrn.imd.master.getbehavior.mockdata.MockReadings;
 
 public class MockTest {
 

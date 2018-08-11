@@ -1,4 +1,4 @@
-package br.ufrn.imd.master.getbehavior.mockData;
+package br.ufrn.imd.master.getbehavior.mockdata;
 
 import java.util.ArrayList;
 import java.util.Calendar;
