@@ -19,7 +19,7 @@ public class BeverageMachineLearningModel {
 	@PostConstruct
 	public void loadModel() {
 		//choose and load model
-		this.modelName = new String("C:\\Users\\Administrator\\Documents\\workspace\\iaWork\\GetBehavior\\src\\main\\resources\\model_set_final.model");
+		this.modelName = new String("C:\\Users\\Administrator\\Documents\\workspace\\iaWork\\GetBehavior\\src\\main\\resources\\modelo_set_final.model");
 		try {
 			this.cls = (Classifier) SerializationHelper.read(modelName);
 			

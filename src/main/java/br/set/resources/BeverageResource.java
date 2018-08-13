@@ -72,7 +72,7 @@ public class BeverageResource {
 			
 			System.out.println("Classificada: " + b.toString());
 			
-			return Response.status(200).entity(string).build();
+			return Response.status(200).entity(b.toString()).build();
 		}  
 		catch (Exception e) {
 			return Response.status(204).entity(string).build();

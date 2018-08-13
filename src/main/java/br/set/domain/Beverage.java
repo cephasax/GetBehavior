@@ -14,11 +14,11 @@ public class Beverage extends Item{
 	
 	private String marca; 
 	private String tipo;
-	private String embalagem ;
+	private String embalagem;
 	private String ncm;
-	private float cfop;
+	private int cfop;
 	private float volume;
-	private int qtd;
+	private float qtd;
 	private float valor;
 	private String produto;
 
@@ -62,11 +62,11 @@ public class Beverage extends Item{
 		this.ncm = ncm;
 	}
 	
-	public float getCfop() {
+	public int getCfop() {
 		return cfop;
 	}
 	
-	public void setCfop(float cfop) {
+	public void setCfop(int cfop) {
 		this.cfop = cfop;
 	}
 	
@@ -77,11 +77,11 @@ public class Beverage extends Item{
 	public void setVolume(float volume) {
 		this.volume = volume;
 	}
-	public int getQtd() {
+	public float getQtd() {
 		return qtd;
 	}
 	
-	public void setQtd(int qtd) {
+	public void setQtd(float qtd) {
 		this.qtd = qtd;
 	}
 	

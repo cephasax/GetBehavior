@@ -54,7 +54,6 @@ public class BeverageUtils {
 		attributes.add(new Attribute("volume"));
 		attributes.add(new Attribute("qtd"));
 		attributes.add(new Attribute("valor"));
-		attributes.add(new Attribute("produto"));
 	
 		// Create Class Attribute
 		attributes.add(new Attribute("produto", createValuesForClass()));
@@ -101,9 +100,9 @@ public class BeverageUtils {
 		beverage.setTipo(hash.get("tipo"));
 		beverage.setEmbalagem(hash.get("embalagem"));
 		beverage.setNcm(hash.get("ncm"));
-		beverage.setCfop(Float.valueOf(hash.get("cfop")));
+		beverage.setCfop(Integer.valueOf(hash.get("cfop")));
 		beverage.setVolume(Float.valueOf(hash.get("volume")));
-		beverage.setQtd(Integer.valueOf(hash.get("qtd")));
+		beverage.setQtd(Float.valueOf(hash.get("qtd")));
 		beverage.setValor(Float.valueOf(hash.get("valor")));
 		beverage.setProduto(hash.get("produto"));
 
