@@ -55,7 +55,7 @@ public class ModelTest {
 		beverage.setCfop(5405);
 		beverage.setVolume(2000);
 		beverage.setQtd(1);
-		beverage.setValor((float) 2.99);
+		beverage.setValor(2.99);
 		beverage.setProduto("DIVERSOS");
 	}
 	

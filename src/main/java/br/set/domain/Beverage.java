@@ -16,12 +16,12 @@ public class Beverage extends Item{
 	private String tipo;
 	private String embalagem;
 	private String ncm;
-	private int cfop;
-	private float volume;
-	private float qtd;
-	private float valor;
+	private double cfop;
+	private double volume;
+	private double qtd;
+	private double valor;
 	private String produto;
-
+	
 	public Integer getIdBeverage() {
 		return idBeverage;
 	}
@@ -33,70 +33,71 @@ public class Beverage extends Item{
 	public String getMarca() {
 		return marca;
 	}
-	
+
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	
+
 	public String getTipo() {
 		return tipo;
 	}
-	
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
+
 	public String getEmbalagem() {
 		return embalagem;
 	}
-	
+
 	public void setEmbalagem(String embalagem) {
 		this.embalagem = embalagem;
 	}
-	
+
 	public String getNcm() {
 		return ncm;
 	}
-	
+
 	public void setNcm(String ncm) {
 		this.ncm = ncm;
 	}
-	
-	public int getCfop() {
+
+	public double getCfop() {
 		return cfop;
 	}
-	
-	public void setCfop(int cfop) {
+
+	public void setCfop(double cfop) {
 		this.cfop = cfop;
 	}
-	
-	public float getVolume() {
+
+	public double getVolume() {
 		return volume;
 	}
-	
-	public void setVolume(float volume) {
+
+	public void setVolume(double volume) {
 		this.volume = volume;
 	}
-	public float getQtd() {
+
+	public double getQtd() {
 		return qtd;
 	}
-	
-	public void setQtd(float qtd) {
+
+	public void setQtd(double qtd) {
 		this.qtd = qtd;
 	}
-	
-	public float getValor() {
+
+	public double getValor() {
 		return valor;
 	}
-	
-	public void setValor(float valor) {
+
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	
+
 	public String getProduto() {
 		return produto;
 	}
-	
+
 	public void setProduto(String produto) {
 		this.produto = produto;
 	}
